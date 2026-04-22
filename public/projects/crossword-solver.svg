@@ -1,0 +1,38 @@
+<svg width="1600" height="1040" viewBox="0 0 1600 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1040" rx="44" fill="#020617"/>
+  <rect x="54" y="54" width="1492" height="932" rx="34" fill="#0F172A" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="120" y="120" width="650" height="800" rx="30" fill="#0B1220"/>
+  <rect x="808" y="120" width="692" height="360" rx="30" fill="#0B1220"/>
+  <rect x="808" y="520" width="692" height="400" rx="30" fill="#0B1220"/>
+  <g stroke="#1E293B" stroke-width="4">
+    <path d="M180 184H710"/>
+    <path d="M180 250H710"/>
+    <path d="M180 316H710"/>
+    <path d="M180 382H710"/>
+    <path d="M180 448H710"/>
+    <path d="M180 514H710"/>
+    <path d="M180 580H710"/>
+    <path d="M180 646H710"/>
+    <path d="M180 712H710"/>
+    <path d="M180 778H710"/>
+    <path d="M180 844H710"/>
+    <path d="M246 184V844"/>
+    <path d="M312 184V844"/>
+    <path d="M378 184V844"/>
+    <path d="M444 184V844"/>
+    <path d="M510 184V844"/>
+    <path d="M576 184V844"/>
+    <path d="M642 184V844"/>
+  </g>
+  <g fill="#E2E8F0">
+    <rect x="180" y="184" width="66" height="66"/>
+    <rect x="312" y="250" width="66" height="66"/>
+    <rect x="444" y="316" width="66" height="66"/>
+    <rect x="576" y="382" width="66" height="66"/>
+    <rect x="246" y="514" width="66" height="66"/>
+    <rect x="378" y="580" width="66" height="66"/>
+    <rect x="510" y="646" width="66" height="66"/>
+  </g>
+  <rect x="860" y="182" width="208" height="16" rx="8" fill="#E2E8F0"/>
+  <rect x="860" y="214" width="294" height="12" rx="6" fill="#64748B"/>
+</svg>
