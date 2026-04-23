@@ -15,7 +15,7 @@ const projectsByCategory = projectCategories.map((category) => ({
 function App() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.14),_transparent_28%),radial-gradient(circle_at_80%_20%,_rgba(148,163,184,0.12),_transparent_22%),radial-gradient(circle_at_bottom,_rgba(59,130,246,0.08),_transparent_28%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),_transparent_24%),radial-gradient(circle_at_78%_18%,_rgba(148,163,184,0.08),_transparent_18%),radial-gradient(circle_at_bottom,_rgba(59,130,246,0.06),_transparent_22%)]" />
       <Navbar />
       <main>
         <Hero />
@@ -32,23 +32,28 @@ function App() {
           ))}
         </section>
 
-        <section id="about" className="px-6 py-12 lg:px-8 lg:py-16">
-          <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_24px_80px_rgba(2,6,23,0.3)] sm:p-10 lg:p-12">
-            <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
+        <section id="about" className="px-6 py-16 lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl rounded-[2.1rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.02))] p-8 shadow-[0_28px_90px_rgba(2,6,23,0.34)] sm:p-10 lg:p-14">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-slate-500">
               About
             </p>
-            <div className="mt-5 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <h2 className="max-w-md text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Interdisciplinary work across data, systems, and computation.
+            <div className="mt-6 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+              <h2 className="max-w-md text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl lg:text-[2.85rem]">
+                I build tools that make complex systems easier to inspect.
               </h2>
-              <p className="max-w-2xl text-base leading-8 text-slate-300">
-                My work sits at the intersection of data science,
-                healthcare and economic analysis, scientific
-                simulation, and algorithmic side projects. I care about
-                building tools that are not only technically rigorous, but
-                also clear, usable, and easy for collaborators to evaluate
-                quickly.
-              </p>
+              <div className="max-w-2xl space-y-5 text-base leading-8 text-slate-300">
+                <p>
+                  My work spans healthcare and economic analysis, scientific
+                  modeling, and solver systems. The through-line is building
+                  tools that make complicated structure easier to inspect
+                  without sanding off the hard parts.
+                </p>
+                <p className="text-slate-400">
+                  I&apos;m most interested in work that requires both analytical
+                  rigor and product judgment, where the interface is part of
+                  the reasoning rather than decoration around it.
+                </p>
+              </div>
             </div>
           </div>
         </section>

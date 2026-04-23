@@ -46,11 +46,15 @@
 
 @layer components {
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-full border border-sky-300/30 bg-sky-300/90 px-5 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-200;
+    @apply inline-flex items-center justify-center rounded-full border border-sky-200/30 bg-sky-300/95 px-5 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_10px_30px_rgba(125,211,252,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-sky-200;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08];
+    @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-5 py-3.5 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08];
+  }
+
+  .screenshot-frame {
+    @apply overflow-hidden rounded-[1.9rem] border border-white/10 bg-slate-950/85 shadow-[0_24px_90px_rgba(2,6,23,0.4)];
   }
 
   .section-divider {

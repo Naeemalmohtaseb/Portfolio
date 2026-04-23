@@ -3,19 +3,19 @@ export const projectCategories = [
     id: 'data-products',
     label: 'Data Products',
     subtitle:
-      'Interactive dashboards and analytical tools built around real-world datasets and decisions.',
+      'Dashboards, decision tools, and analytical interfaces built to make real-world data legible, useful, and fast to evaluate.',
   },
   {
     id: 'research-simulation',
     label: 'Research / Simulation',
     subtitle:
-      'Modeling-focused work that translates scientific questions into computational experiments.',
+      'Modeling work grounded in scientific computation, parameterized systems, and physically informed analysis.',
   },
   {
     id: 'algorithmic-systems',
     label: 'Algorithmic Systems / Solvers',
     subtitle:
-      'Search, optimization, and logic systems built to reason through structured problems.',
+      'Search logic, heuristics, and solver design for structured problems that reward careful system thinking.',
   },
 ]
 
@@ -26,16 +26,18 @@ export const projects = [
     categoryId: 'data-products',
     featured: true,
     description:
-      'Interactive healthcare pricing platform exploring hospital price variation, regional differences, and transparency across U.S. providers.',
+      'Research-driven pricing explorer that turns hospital transparency files into a usable decision tool for comparing procedure costs across providers and regions.',
     highlights: [
-      'Compares provider pricing patterns across procedures and regions.',
-      'Transforms dense transparency datasets into recruiter-friendly, explorable views.',
-      'Balances public-facing design with analytical depth for practical decision-making.',
+      'Compares provider-level prices across procedures, markets, and geographies.',
+      'Built as both an analytical interface and a public-facing product surface.',
+      'Exposes pricing opacity in data that is usually difficult to inspect quickly.',
     ],
+    atAGlance: ['Healthcare', 'Interactive App', 'Geographic Comparison'],
+    whyItMatters: 'Exposes pricing opacity across hospitals and regions.',
     image: '/projects/hospital-carefinder.svg',
     liveUrl: 'https://example.com/hospital-carefinder',
     githubUrl: 'https://github.com/yourusername/hospital-carefinder',
-    tags: ['React', 'Healthcare', 'Interactive'],
+    tags: ['Healthcare Pricing', 'Research + Product', 'Decision Tool'],
   },
   {
     title: 'Business Retail Analysis',
@@ -43,16 +45,18 @@ export const projects = [
     categoryId: 'data-products',
     featured: false,
     description:
-      'A retail analytics dashboard focused on sales behavior, customer segments, and operational trends across business units.',
+      'Business-facing retail analysis system built to surface revenue concentration, customer segmentation, and repeat-purchase patterns from transaction data.',
     highlights: [
-      'Surfaces margin, basket, and seasonal performance patterns.',
-      'Designed for fast executive scanning and deeper follow-up analysis.',
-      'Pairs clean visual storytelling with actionable KPI framing.',
+      'Highlights customer segments, purchase frequency, and top-line concentration.',
+      'Frames retention and product mix questions in a decision-ready format.',
+      'Turns raw transaction records into a clearer view of growth levers.',
     ],
+    atAGlance: ['Dashboard', 'Segmentation', 'Revenue Analysis'],
+    whyItMatters: 'Turns raw transaction data into retention and revenue strategy.',
     image: '/projects/business-retail-analysis.svg',
     liveUrl: 'https://example.com/business-retail-analysis',
     githubUrl: 'https://github.com/yourusername/business-retail-analysis',
-    tags: ['Dashboard', 'Retail', 'BI'],
+    tags: ['Retail', 'Decision Support', 'Customer Analysis'],
   },
   {
     title: 'Microplastics',
@@ -60,16 +64,18 @@ export const projects = [
     categoryId: 'data-products',
     featured: false,
     description:
-      'Data exploration project examining microplastic distribution patterns, measurement uncertainty, and environmental context.',
+      'Analytical study of microplastic distribution patterns that focuses on ecological context, measurement uncertainty, and the limits of straightforward inference.',
     highlights: [
-      'Combines spatial and comparative views for clearer environmental interpretation.',
-      'Emphasizes uncertainty-aware storytelling rather than raw chart density.',
-      'Structured to support both research communication and public understanding.',
+      'Separates observed patterns from stronger causal claims the data cannot support.',
+      'Uses comparative views to show how measurement context changes interpretation.',
+      'Designed to communicate environmental risk without overstating certainty.',
     ],
+    atAGlance: ['Environmental', 'Inference', 'Public Health'],
+    whyItMatters: 'Makes ecological signal and uncertainty visible at the same time.',
     image: '/projects/microplastics.svg',
     liveUrl: 'https://example.com/microplastics',
     githubUrl: 'https://github.com/yourusername/microplastics',
-    tags: ['Environment', 'Research Data'],
+    tags: ['Microplastics', 'Uncertainty-Aware', 'Environmental Data'],
   },
   {
     title: 'Environmental Analysis',
@@ -77,16 +83,18 @@ export const projects = [
     categoryId: 'data-products',
     featured: false,
     description:
-      'An environmental analysis interface bringing together trend monitoring, geographic context, and interpretable reporting.',
+      'Spatial analysis interface examining how environmental burden, vulnerability, and representation diverge across places rather than aligning neatly.',
     highlights: [
-      'Frames multi-factor environmental data in a decision-oriented format.',
-      'Built to stay readable across both dense and sparse regional datasets.',
-      'Uses strong visual hierarchy to reduce time-to-insight.',
+      'Pairs geographic context with comparative indicators instead of single-score summaries.',
+      'Designed to surface mismatches between exposure, vulnerability, and visibility.',
+      'Structured for policy-facing interpretation rather than generic mapping.',
     ],
+    atAGlance: ['Geospatial', 'Policy Analysis', 'Vulnerability'],
+    whyItMatters: 'Maps gaps between environmental burden and who gets represented.',
     image: '/projects/environmental-analysis.svg',
     liveUrl: 'https://example.com/environmental-analysis',
     githubUrl: 'https://github.com/yourusername/environmental-analysis',
-    tags: ['Analytics', 'Geospatial'],
+    tags: ['Environmental Justice', 'Spatial Analysis', 'Policy-Relevant'],
   },
   {
     title: 'Hospital Insurance Dashboard',
@@ -94,16 +102,18 @@ export const projects = [
     categoryId: 'data-products',
     featured: false,
     description:
-      'Healthcare dashboard analyzing insurer-hospital relationships, negotiated rates, and payer-specific pricing behavior.',
+      'Applied healthcare dashboard for comparing insurer-hospital pricing relationships, negotiated rates, and payer-specific variation across procedures.',
     highlights: [
-      'Highlights variation between insurers, procedures, and local markets.',
-      'Built around comparative analysis rather than static reporting.',
-      'Turns complex pricing structures into concise visual narratives.',
+      'Lets users compare payers, procedures, and local market behavior side by side.',
+      'Built around negotiated-rate differences rather than static summary charts.',
+      'Makes insurer-specific pricing structures easier to evaluate and explain.',
     ],
+    atAGlance: ['Healthcare', 'Payer Comparison', 'Dashboard'],
+    whyItMatters: 'Makes insurer-hospital pricing easier to compare and evaluate.',
     image: '/projects/hospital-insurance-dashboard.svg',
     liveUrl: 'https://example.com/hospital-insurance-dashboard',
     githubUrl: 'https://github.com/yourusername/hospital-insurance-dashboard',
-    tags: ['Healthcare', 'Dashboard'],
+    tags: ['Negotiated Rates', 'Comparative Analysis', 'Healthcare Data'],
   },
   {
     title: 'Rainbow Simulation',
@@ -111,16 +121,18 @@ export const projects = [
     categoryId: 'research-simulation',
     featured: false,
     description:
-      'A scientific simulation exploring light behavior and atmospheric conditions to model rainbow formation and variation.',
+      'Physically grounded rainbow simulation that models light behavior under varying atmospheric conditions to study how optical structure changes.',
     highlights: [
-      'Translates physical assumptions into an interpretable computational model.',
-      'Designed to communicate both simulation output and parameter sensitivity.',
-      'Blends scientific curiosity with a presentation-ready research interface.',
+      'Uses stochastic or parameter-based simulation to explore optical variation.',
+      'Connects visual output back to physical assumptions instead of treating it as a black box.',
+      'Presents scientific modeling work in a form that is still easy to inspect.',
     ],
+    atAGlance: ['Simulation', 'Optics', 'Monte Carlo'],
+    whyItMatters: 'Models a physical phenomenon through stochastic simulation.',
     image: '/projects/rainbow-simulation.svg',
     liveUrl: 'https://example.com/rainbow-simulation',
     githubUrl: 'https://github.com/yourusername/rainbow-simulation',
-    tags: ['Simulation', 'Scientific Computing'],
+    tags: ['Physical Modeling', 'Scientific Computing', 'Optical Simulation'],
   },
   {
     title: 'Solitaire Solver',
@@ -128,16 +140,18 @@ export const projects = [
     categoryId: 'algorithmic-systems',
     featured: false,
     description:
-      'A search-based solver that models game states, evaluates move sequences, and explores efficient strategies for solvable solitaire boards.',
+      'Search-based solver that treats solitaire as a state-space problem and prioritizes move sequences that improve solvability.',
     highlights: [
-      'Focuses on state representation, pruning, and computational efficiency.',
-      'Makes algorithm behavior understandable through structured outputs.',
-      'A strong example of turning abstract logic into a usable system.',
+      'Encodes board states and legal transitions for systematic search.',
+      'Uses heuristics or move prioritization to reduce wasted exploration.',
+      'Turns abstract search logic into a concrete problem-solving system.',
     ],
+    atAGlance: ['Heuristic Solver', 'Search', 'State Space'],
+    whyItMatters: 'Shows how search strategy changes practical solvability.',
     image: '/projects/solitaire-solver.svg',
     liveUrl: 'https://example.com/solitaire-solver',
     githubUrl: 'https://github.com/yourusername/solitaire-solver',
-    tags: ['Algorithms', 'Search'],
+    tags: ['Solver Design', 'State-Space Search', 'Heuristics'],
   },
   {
     title: 'Crossword Solver',
@@ -145,16 +159,18 @@ export const projects = [
     categoryId: 'algorithmic-systems',
     featured: false,
     description:
-      'Constraint-driven crossword solving system built around pattern matching, search heuristics, and efficient candidate generation.',
+      'Constraint-based crossword solver that combines pattern matching, candidate filtering, and search strategy to fill structured grids efficiently.',
     highlights: [
-      'Uses structured constraints to reduce large search spaces quickly.',
-      'Shows how algorithmic reasoning can power an elegant end-user workflow.',
-      'Built as a compact but rigorous systems project.',
+      'Uses letter-position constraints to prune large candidate sets early.',
+      'Combines search order and filtering logic to improve fill quality.',
+      'A compact example of algorithmic reasoning applied to language structure.',
     ],
+    atAGlance: ['Constraint Logic', 'Search Strategy', 'Language'],
+    whyItMatters: 'Turns constraint reasoning into an efficient fill strategy.',
     image: '/projects/crossword-solver.svg',
     liveUrl: 'https://example.com/crossword-solver',
     githubUrl: 'https://github.com/yourusername/crossword-solver',
-    tags: ['Constraints', 'Solver'],
+    tags: ['Constraint Solver', 'Pattern Matching', 'Algorithmic Reasoning'],
   },
 ]
 
@@ -164,4 +180,11 @@ export const heroPreviewProjects = [
   projects[0],
   projects[1],
   projects[5],
+]
+
+export const focusAreas = [
+  'Healthcare Analytics',
+  'Data Products',
+  'Simulation',
+  'Algorithmic Systems',
 ]
