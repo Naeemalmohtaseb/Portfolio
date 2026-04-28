@@ -230,7 +230,7 @@ function Hero() {
             type="button"
             whileTap={{ scale: 0.96 }}
             onClick={() => stepProject(-1)}
-            className="absolute left-2 top-[26%] z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-slate-950/88 text-xl text-slate-200 shadow-[0_18px_40px_rgba(2,6,23,0.32)] transition hover:border-white/20 hover:bg-slate-900 lg:inline-flex"
+            className="absolute left-2 top-[26%] z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white text-xl text-slate-900 shadow-[0_18px_40px_rgba(2,6,23,0.32)] transition hover:-translate-y-0.5 hover:bg-slate-100 lg:inline-flex"
             aria-label="Previous project"
           >
             &lsaquo;
@@ -240,7 +240,7 @@ function Hero() {
             type="button"
             whileTap={{ scale: 0.96 }}
             onClick={() => stepProject(1)}
-            className="absolute right-2 top-[26%] z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-slate-950/88 text-xl text-slate-200 shadow-[0_18px_40px_rgba(2,6,23,0.32)] transition hover:border-white/20 hover:bg-slate-900 lg:inline-flex"
+            className="absolute right-2 top-[26%] z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white text-xl text-slate-900 shadow-[0_18px_40px_rgba(2,6,23,0.32)] transition hover:-translate-y-0.5 hover:bg-slate-100 lg:inline-flex"
             aria-label="Next project"
           >
             &rsaquo;
@@ -275,11 +275,15 @@ function Hero() {
                   onClick={() => showProject(index)}
                   className={`rounded-[1rem] border px-3 py-3 text-left transition ${
                     index === activeIndex
-                      ? 'border-sky-200/30 bg-sky-300/[0.08] text-white shadow-[0_14px_35px_rgba(14,165,233,0.12)]'
-                      : 'border-white/10 bg-white/[0.03] text-slate-400 hover:border-white/20 hover:bg-white/[0.05] hover:text-slate-200'
+                      ? 'border-white bg-white text-slate-950 shadow-[0_14px_35px_rgba(255,255,255,0.14)]'
+                      : 'border-white/70 bg-white/90 text-slate-700 hover:-translate-y-0.5 hover:bg-white hover:text-slate-950'
                   }`}
                 >
-                  <p className="truncate text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                  <p
+                    className={`truncate text-[11px] uppercase tracking-[0.18em] ${
+                      index === activeIndex ? 'text-slate-500' : 'text-slate-500'
+                    }`}
+                  >
                     {project.category}
                   </p>
                   <p className="mt-1 text-sm font-medium leading-6">
