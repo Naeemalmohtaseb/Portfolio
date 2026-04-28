@@ -40,28 +40,11 @@ const stackPositions = {
 function HeroPanel({ project, role, onClick, isInteractive }) {
   const position = stackPositions[role]
   const isActive = role === 'active'
-
-  return (
-    <motion.button
-      type="button"
-      layout
-      onClick={isInteractive ? onClick : undefined}
-      initial={{
-        opacity: 0,
-        y: role === 'prev' ? 40 : role === 'next' ? -32 : 18,
-        scale: 0.94,
-      }}
-      animate={position.animate}
-      exit={{
-        opacity: 0,
-        y: role === 'prev' ? -28 : role === 'next' ? 28 : -18,
-        scale: 0.9,
-      }}
-      transition={{ type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }}
-      className={`absolute overflow-hidden rounded-[1.85rem] border border-white/10 bg-slate-950/84 text-left shadow-[0_26px_70px_rgba(2,6,23,0.34)] backdrop-blur ${position.className} ${
-        isInteractive ? 'cursor-pointer' : 'cursor-default'
-      }`}
-    >
+  const panelClassName = `absolute overflow-hidden rounded-[1.85rem] border border-white/10 bg-slate-950/84 text-left shadow-[0_26px_70px_rgba(2,6,23,0.34)] backdrop-blur ${position.className} ${
+    isInteractive ? 'cursor-pointer' : 'cursor-default'
+  }`
+  const content = (
+    <>
       <div className="flex items-center gap-2 border-b border-white/10 bg-slate-950/95 px-5 py-3.5">
         <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/12" />
@@ -108,7 +91,74 @@ function HeroPanel({ project, role, onClick, isInteractive }) {
             </div>
           ) : null}
         </div>
+
+        {isActive ? (
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="button-primary"
+            >
+              {project.featured ? 'Open Case Study' : 'Live Demo'}
+            </a>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="button-secondary"
+            >
+              Review Code
+            </a>
+          </div>
+        ) : null}
       </div>
+    </>
+  )
+
+  if (isActive) {
+    return (
+      <motion.div
+        layout
+        initial={{
+          opacity: 0,
+          y: 18,
+          scale: 0.94,
+        }}
+        animate={position.animate}
+        exit={{
+          opacity: 0,
+          y: -18,
+          scale: 0.9,
+        }}
+        transition={{ type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }}
+        className={panelClassName}
+      >
+        {content}
+      </motion.div>
+    )
+  }
+
+  return (
+    <motion.button
+      type="button"
+      layout
+      onClick={onClick}
+      initial={{
+        opacity: 0,
+        y: role === 'prev' ? 40 : -32,
+        scale: 0.94,
+      }}
+      animate={position.animate}
+      exit={{
+        opacity: 0,
+        y: role === 'prev' ? -28 : 28,
+        scale: 0.9,
+      }}
+      transition={{ type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }}
+      className={panelClassName}
+    >
+      {content}
     </motion.button>
   )
 }
