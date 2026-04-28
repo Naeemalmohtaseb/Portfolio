@@ -215,7 +215,7 @@ function Hero() {
                   </span>
                 </div>
                 <img
-                  src="/profile/naeem-placeholder.svg"
+                  src="/Screenshots/LinkedInjpeg.jpeg"
                   alt="Placeholder portrait for Naeem Almohtaseb"
                   className="aspect-[4/5] w-full object-cover"
                 />
@@ -263,12 +263,10 @@ function Hero() {
               View Selected Work
             </a>
             <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noreferrer"
+              href="#contact"
               className="button-secondary"
             >
-              GitHub / Contact
+              Contact
             </a>
           </div>
         </div>
@@ -310,14 +308,8 @@ function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="relative z-40 mx-auto mt-[34rem] flex w-full max-w-[560px] flex-col lg:mt-[38rem]">
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-slate-500">
-                Browse all projects
-              </p>
-            </div>
-
-            <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          <div className="relative z-40 mx-auto mt-[35.5rem] flex w-full max-w-[560px] flex-col lg:mt-[39.5rem]">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {projects.map((project, index) => (
                 <button
                   key={project.title}

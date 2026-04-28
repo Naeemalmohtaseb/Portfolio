@@ -17,17 +17,9 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 lg:items-end">
-          <div className="flex flex-col gap-3 text-sm text-slate-300 sm:flex-row sm:gap-6">
+          <div className="flex flex-col gap-3 text-sm text-slate-300 sm:items-end">
             <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noreferrer"
-              className="transition hover:text-white"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/your-linkedin"
+              href="https://www.linkedin.com/in/naeem-89b121306/"
               target="_blank"
               rel="noreferrer"
               className="transition hover:text-white"
@@ -35,10 +27,13 @@ function Footer() {
               LinkedIn
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:privatenaeem0@gmail.com"
               className="transition hover:text-white"
             >
-              your.email@example.com
+              privatenaeem0@gmail.com
+            </a>
+            <a href="tel:5206788417" className="transition hover:text-white">
+              520 678 8417
             </a>
           </div>
           <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
