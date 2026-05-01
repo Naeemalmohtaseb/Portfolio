@@ -55,7 +55,8 @@ function ProjectSection({ id, title, subtitle, projects }) {
               project={project}
               emphasized={
                 id === 'data-products' &&
-                (index === 0 || project.title === 'Hospital Insurance Dashboard')
+                (index === 0 ||
+                  project.title === 'Real-Time Prediction Market Analysis Platform')
               }
             />
           ))}
