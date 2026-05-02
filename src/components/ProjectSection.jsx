@@ -5,8 +5,6 @@ const MotionDiv = motion.div
 
 const sectionLabels = {
   'data-products': 'Applied Work',
-  'research-simulation': 'Technical Depth',
-  'algorithmic-systems': 'Systems Thinking',
 }
 
 function ProjectSection({ id, title, subtitle, projects }) {

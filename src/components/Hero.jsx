@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { focusAreas, projects } from '../data/projects'
 
 const MotionSection = motion.section
-const panelSpring = { type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }
+const panelTransition = { duration: 0.42, ease: [0.22, 1, 0.36, 1] }
 
 const stackPositions = {
   prev: {
@@ -38,13 +38,67 @@ const stackPositions = {
   },
 }
 
+function getPanelInitialState(role, direction) {
+  if (role === 'active') {
+    return {
+      opacity: 0,
+      x: direction > 0 ? 96 : -96,
+      y: 6,
+      scale: 0.98,
+    }
+  }
+
+  if (role === 'prev') {
+    return {
+      opacity: 0,
+      x: direction > 0 ? -132 : -56,
+      y: 10,
+      scale: 0.94,
+    }
+  }
+
+  return {
+    opacity: 0,
+    x: direction > 0 ? 56 : 132,
+    y: 10,
+    scale: 0.94,
+  }
+}
+
+function getPanelExitState(role, direction) {
+  if (role === 'active') {
+    return {
+      opacity: 0,
+      x: direction > 0 ? -96 : 96,
+      y: -6,
+      scale: 0.98,
+    }
+  }
+
+  if (role === 'prev') {
+    return {
+      opacity: 0,
+      x: direction > 0 ? -96 : -44,
+      y: -4,
+      scale: 0.94,
+    }
+  }
+
+  return {
+    opacity: 0,
+    x: direction > 0 ? 44 : 96,
+    y: -4,
+    scale: 0.94,
+  }
+}
+
 function HeroPanel({ project, role, onClick, isInteractive, direction }) {
   const position = stackPositions[role]
   const isActive = role === 'active'
   const panelClassName = `absolute overflow-hidden rounded-[1.85rem] border border-white/10 bg-slate-950/84 text-left shadow-[0_26px_70px_rgba(2,6,23,0.34)] backdrop-blur ${position.className} ${
     isInteractive ? 'cursor-pointer' : 'cursor-default'
   }`
-  const horizontalOffset = direction >= 0 ? 72 : -72
+
   const content = (
     <>
       <div className="flex items-center gap-2 border-b border-white/10 bg-slate-950/95 px-5 py-3.5">
@@ -122,21 +176,10 @@ function HeroPanel({ project, role, onClick, isInteractive, direction }) {
     return (
       <motion.div
         custom={direction}
-        layout
-        initial={(currentDirection) => ({
-          opacity: 0,
-          x: currentDirection >= 0 ? 72 : -72,
-          y: 18,
-          scale: 0.94,
-        })}
+        initial={(currentDirection) => getPanelInitialState(role, currentDirection)}
         animate={position.animate}
-        exit={(currentDirection) => ({
-          opacity: 0,
-          x: currentDirection >= 0 ? -72 : 72,
-          y: -18,
-          scale: 0.9,
-        })}
-        transition={panelSpring}
+        exit={(currentDirection) => getPanelExitState(role, currentDirection)}
+        transition={panelTransition}
         className={panelClassName}
       >
         {content}
@@ -148,36 +191,11 @@ function HeroPanel({ project, role, onClick, isInteractive, direction }) {
     <motion.button
       type="button"
       custom={direction}
-      layout
       onClick={onClick}
-      initial={(currentDirection) => ({
-        opacity: 0,
-        x:
-          role === 'prev'
-            ? currentDirection >= 0
-              ? -horizontalOffset
-              : horizontalOffset / 2
-            : currentDirection >= 0
-              ? horizontalOffset / 2
-              : -horizontalOffset,
-        y: role === 'prev' ? 40 : -32,
-        scale: 0.94,
-      })}
+      initial={(currentDirection) => getPanelInitialState(role, currentDirection)}
       animate={position.animate}
-      exit={(currentDirection) => ({
-        opacity: 0,
-        x:
-          role === 'prev'
-            ? currentDirection >= 0
-              ? -horizontalOffset
-              : horizontalOffset / 2
-            : currentDirection >= 0
-              ? horizontalOffset / 2
-              : -horizontalOffset,
-        y: role === 'prev' ? -28 : 28,
-        scale: 0.9,
-      })}
-      transition={panelSpring}
+      exit={(currentDirection) => getPanelExitState(role, currentDirection)}
+      transition={panelTransition}
       className={panelClassName}
     >
       {content}
@@ -245,7 +263,7 @@ function Hero() {
                 </div>
                 <img
                   src="/Screenshots/LinkedInjpeg.jpeg"
-                  alt="Placeholder portrait for Naeem Almohtaseb"
+                  alt="Portrait of Naeem Almohtaseb"
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
@@ -272,7 +290,7 @@ function Hero() {
                 I care about analytical clarity, thoughtful interfaces, and
                 systems that feel rigorous without becoming inaccessible. This
                 portfolio is a selection of projects across healthcare,
-                environmental analysis, simulation, and solver design.
+                environmental analysis, and forecasting systems.
               </p>
             </div>
           </div>
@@ -291,10 +309,7 @@ function Hero() {
             <a href="#projects" className="button-primary">
               View Selected Work
             </a>
-            <a
-              href="#contact"
-              className="button-secondary"
-            >
+            <a href="#contact" className="button-secondary">
               Contact
             </a>
           </div>
@@ -324,10 +339,10 @@ function Hero() {
           </motion.button>
 
           <div className="relative h-full w-full">
-            <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+            <AnimatePresence initial={false} custom={direction}>
               {visiblePanels.map(({ role, project, index }) => (
                 <HeroPanel
-                  key={project.title}
+                  key={`${role}-${project.title}`}
                   project={project}
                   role={role}
                   onClick={() => showProject(index)}
@@ -351,11 +366,7 @@ function Hero() {
                       : 'border-white/70 bg-white/90 text-slate-700 hover:-translate-y-0.5 hover:bg-white hover:text-slate-950'
                   }`}
                 >
-                  <p
-                    className={`truncate text-[11px] uppercase tracking-[0.18em] ${
-                      index === activeIndex ? 'text-slate-500' : 'text-slate-500'
-                    }`}
-                  >
+                  <p className="truncate text-[11px] uppercase tracking-[0.18em] text-slate-500">
                     {project.category}
                   </p>
                   <p className="mt-1 text-sm font-medium leading-6">

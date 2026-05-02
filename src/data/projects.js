@@ -5,18 +5,6 @@ export const projectCategories = [
     subtitle:
       'Dashboards, decision tools, and analytical interfaces built to make real-world data legible, useful, and fast to evaluate.',
   },
-  {
-    id: 'research-simulation',
-    label: 'Research / Simulation',
-    subtitle:
-      'Modeling work grounded in scientific computation, parameterized systems, and physically informed analysis.',
-  },
-  {
-    id: 'algorithmic-systems',
-    label: 'Algorithmic Systems / Solvers',
-    subtitle:
-      'Search logic, heuristics, and solver design for structured problems that reward careful system thinking.',
-  },
 ]
 
 export const projects = [
@@ -136,76 +124,13 @@ export const projects = [
       'Forecasting',
     ],
   },
-  {
-    title: 'Rainbow Simulation',
-    category: 'Research / Simulation',
-    categoryId: 'research-simulation',
-    featured: false,
-    description:
-      'Physically grounded rainbow simulation that models light behavior under varying atmospheric conditions to study how optical structure changes.',
-    highlights: [
-      'Uses stochastic or parameter-based simulation to explore optical variation.',
-      'Connects visual output back to physical assumptions instead of treating it as a black box.',
-      'Presents scientific modeling work in a form that is still easy to inspect.',
-    ],
-    atAGlance: ['Simulation', 'Optics', 'Monte Carlo'],
-    whyItMatters: 'Models a physical phenomenon through stochastic simulation.',
-    image: '/projects/rainbow-simulation.svg',
-    liveUrl: 'https://example.com/rainbow-simulation',
-    githubUrl: 'https://github.com/yourusername/rainbow-simulation',
-    tags: ['Physical Modeling', 'Scientific Computing', 'Optical Simulation'],
-  },
-  {
-    title: 'Solitaire Solver',
-    category: 'Algorithmic Systems / Solvers',
-    categoryId: 'algorithmic-systems',
-    featured: false,
-    description:
-      'Search-based solver that treats solitaire as a state-space problem and prioritizes move sequences that improve solvability.',
-    highlights: [
-      'Encodes board states and legal transitions for systematic search.',
-      'Uses heuristics or move prioritization to reduce wasted exploration.',
-      'Turns abstract search logic into a concrete problem-solving system.',
-    ],
-    atAGlance: ['Heuristic Solver', 'Search', 'State Space'],
-    whyItMatters: 'Shows how search strategy changes practical solvability.',
-    image: '/projects/solitaire-solver.svg',
-    liveUrl: 'https://example.com/solitaire-solver',
-    githubUrl: 'https://github.com/yourusername/solitaire-solver',
-    tags: ['Solver Design', 'State-Space Search', 'Heuristics'],
-  },
-  {
-    title: 'Crossword Solver',
-    category: 'Algorithmic Systems / Solvers',
-    categoryId: 'algorithmic-systems',
-    featured: false,
-    description:
-      'Constraint-based crossword solver that combines pattern matching, candidate filtering, and search strategy to fill structured grids efficiently.',
-    highlights: [
-      'Uses letter-position constraints to prune large candidate sets early.',
-      'Combines search order and filtering logic to improve fill quality.',
-      'A compact example of algorithmic reasoning applied to language structure.',
-    ],
-    atAGlance: ['Constraint Logic', 'Search Strategy', 'Language'],
-    whyItMatters: 'Turns constraint reasoning into an efficient fill strategy.',
-    image: '/projects/crossword-solver.svg',
-    liveUrl: 'https://example.com/crossword-solver',
-    githubUrl: 'https://github.com/yourusername/crossword-solver',
-    tags: ['Constraint Solver', 'Pattern Matching', 'Algorithmic Reasoning'],
-  },
 ]
 
 export const featuredProject = projects.find((project) => project.featured)
 
-export const heroPreviewProjects = [
-  projects[0],
-  projects[1],
-  projects[5],
-]
-
 export const focusAreas = [
   'Healthcare Analytics',
   'Data Products',
-  'Simulation',
-  'Algorithmic Systems',
+  'Policy Analysis',
+  'Forecasting Systems',
 ]

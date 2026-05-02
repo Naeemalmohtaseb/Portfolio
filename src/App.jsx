@@ -10,7 +10,7 @@ const projectsByCategory = projectCategories.map((category) => ({
   projects: projects.filter(
     (project) => project.categoryId === category.id && !project.featured,
   ),
-}))
+})).filter((category) => category.projects.length > 0)
 
 function App() {
   return (
