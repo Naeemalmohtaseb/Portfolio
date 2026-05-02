@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { focusAreas, projects } from '../data/projects'
 
 const MotionSection = motion.section
+const panelSpring = { type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }
 
 const stackPositions = {
   prev: {
@@ -37,12 +38,13 @@ const stackPositions = {
   },
 }
 
-function HeroPanel({ project, role, onClick, isInteractive }) {
+function HeroPanel({ project, role, onClick, isInteractive, direction }) {
   const position = stackPositions[role]
   const isActive = role === 'active'
   const panelClassName = `absolute overflow-hidden rounded-[1.85rem] border border-white/10 bg-slate-950/84 text-left shadow-[0_26px_70px_rgba(2,6,23,0.34)] backdrop-blur ${position.className} ${
     isInteractive ? 'cursor-pointer' : 'cursor-default'
   }`
+  const horizontalOffset = direction >= 0 ? 72 : -72
   const content = (
     <>
       <div className="flex items-center gap-2 border-b border-white/10 bg-slate-950/95 px-5 py-3.5">
@@ -119,19 +121,22 @@ function HeroPanel({ project, role, onClick, isInteractive }) {
   if (isActive) {
     return (
       <motion.div
+        custom={direction}
         layout
-        initial={{
+        initial={(currentDirection) => ({
           opacity: 0,
+          x: currentDirection >= 0 ? 72 : -72,
           y: 18,
           scale: 0.94,
-        }}
+        })}
         animate={position.animate}
-        exit={{
+        exit={(currentDirection) => ({
           opacity: 0,
+          x: currentDirection >= 0 ? -72 : 72,
           y: -18,
           scale: 0.9,
-        }}
-        transition={{ type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }}
+        })}
+        transition={panelSpring}
         className={panelClassName}
       >
         {content}
@@ -142,20 +147,37 @@ function HeroPanel({ project, role, onClick, isInteractive }) {
   return (
     <motion.button
       type="button"
+      custom={direction}
       layout
       onClick={onClick}
-      initial={{
+      initial={(currentDirection) => ({
         opacity: 0,
+        x:
+          role === 'prev'
+            ? currentDirection >= 0
+              ? -horizontalOffset
+              : horizontalOffset / 2
+            : currentDirection >= 0
+              ? horizontalOffset / 2
+              : -horizontalOffset,
         y: role === 'prev' ? 40 : -32,
         scale: 0.94,
-      }}
+      })}
       animate={position.animate}
-      exit={{
+      exit={(currentDirection) => ({
         opacity: 0,
+        x:
+          role === 'prev'
+            ? currentDirection >= 0
+              ? -horizontalOffset
+              : horizontalOffset / 2
+            : currentDirection >= 0
+              ? horizontalOffset / 2
+              : -horizontalOffset,
         y: role === 'prev' ? -28 : 28,
         scale: 0.9,
-      }}
-      transition={{ type: 'spring', stiffness: 170, damping: 24, mass: 0.85 }}
+      })}
+      transition={panelSpring}
       className={panelClassName}
     >
       {content}
@@ -165,6 +187,7 @@ function HeroPanel({ project, role, onClick, isInteractive }) {
 
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [direction, setDirection] = useState(1)
 
   const visiblePanels = useMemo(() => {
     const previousIndex = (activeIndex - 1 + projects.length) % projects.length
@@ -182,10 +205,16 @@ function Hero() {
       return
     }
 
+    const totalProjects = projects.length
+    const forwardDistance = (nextIndex - activeIndex + totalProjects) % totalProjects
+    const backwardDistance = (activeIndex - nextIndex + totalProjects) % totalProjects
+
+    setDirection(forwardDistance <= backwardDistance ? 1 : -1)
     setActiveIndex(nextIndex)
   }
 
   const stepProject = (step) => {
+    setDirection(step > 0 ? 1 : -1)
     setActiveIndex((current) => (current + step + projects.length) % projects.length)
   }
 
@@ -295,7 +324,7 @@ function Hero() {
           </motion.button>
 
           <div className="relative h-full w-full">
-            <AnimatePresence initial={false} mode="popLayout">
+            <AnimatePresence initial={false} mode="popLayout" custom={direction}>
               {visiblePanels.map(({ role, project, index }) => (
                 <HeroPanel
                   key={project.title}
@@ -303,12 +332,13 @@ function Hero() {
                   role={role}
                   onClick={() => showProject(index)}
                   isInteractive={role !== 'active'}
+                  direction={direction}
                 />
               ))}
             </AnimatePresence>
           </div>
 
-          <div className="relative z-40 mx-auto mt-[35.5rem] flex w-full max-w-[560px] flex-col lg:mt-[39.5rem]">
+          <div className="relative z-40 mx-auto mt-[37rem] flex w-full max-w-[560px] flex-col lg:mt-[41rem]">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {projects.map((project, index) => (
                 <button
